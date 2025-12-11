@@ -1,5 +1,6 @@
 <?php
 
+use App\Presentation\API\Category\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Presentation\API\Category\Controllers\CategoryController;
@@ -22,6 +23,12 @@ use Presentation\API\Category\Controllers\CategoryController;
 // Accesibles desde la app de e-commerce para clientes
 
 Route::prefix('public')->group(function () {
+
+
+    Route::prefix('products')->group(function(){
+        Route::get('/', [ProductController::class, 'index'])
+            ->name('public.products.index');        
+    });
 
     // Categories - Solo lectura
     Route::prefix('categories')->group(function () {
