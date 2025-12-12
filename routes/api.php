@@ -27,7 +27,9 @@ Route::prefix('public')->group(function () {
 
     Route::prefix('products')->group(function(){
         Route::get('/', [ProductController::class, 'index'])
-            ->name('public.products.index');        
+            ->name('public.products.index');    
+            
+        Route::get('/{id}', [ProductController::class, 'show'])->name('public.products.show');
     });
 
     // Categories - Solo lectura

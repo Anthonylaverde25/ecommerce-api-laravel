@@ -22,6 +22,13 @@ final class EloquentProductRepository implements ProductRepositoryInterface
             ->toArray();
     }
 
+
+    public function show(int $id):Item
+    {
+        $item = EloquentProductModel::findOrFail($id);
+        return $this->toDomain($item);
+    }
+
     /**
      * Convierte un Item (Eloquent Model)
      * a una instancia de la entidad Item del Dominio (Domain Entity)

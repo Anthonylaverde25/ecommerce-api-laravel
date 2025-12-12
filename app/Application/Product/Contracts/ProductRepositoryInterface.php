@@ -3,6 +3,8 @@
 declare(strict_types=1);
 namespace Application\Product\Contracts;
 
+use Domain\Product\Entities\Item;
+
 /**
  * ProductRepositoryInterface - Applicaction Layer
  * Interfaz (contrato) para el repositorio de productos.
@@ -12,4 +14,5 @@ namespace Application\Product\Contracts;
 interface ProductRepositoryInterface
 {
     public function index():array;
+    public function show(int $id): Item;
 }

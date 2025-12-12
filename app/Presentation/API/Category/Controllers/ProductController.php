@@ -21,5 +21,14 @@ final class ProductController
         return Response::json([
             'products' => $products
         ]);
+
+    }
+
+    public function show(int $id): JsonResponse
+    {
+        $product = $this->productCrudUseCase->show($id);
+        return Response::json([
+            'product' => $product
+        ]);
     }
 }
