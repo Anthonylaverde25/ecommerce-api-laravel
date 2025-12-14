@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace Application\Product\Contracts;
+namespace App\Application\Product\Contracts;
 
 use Domain\Product\Entities\Item;
 
@@ -13,6 +13,6 @@ use Domain\Product\Entities\Item;
 
 interface ProductRepositoryInterface
 {
-    public function index():array;
+    public function index(array $criteria = []): array;
     public function show(int $id): Item;
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Persistence\Eloquent\Repositories;
 
-use Application\Category\Contracts\CategoryRepositoryInterface;
+use App\Application\Category\Contracts\CategoryRepositoryInterface;
 use Domain\Category\Entities\Category;
 use Domain\Shared\ValueObjects\Uuid;
 use App\Models\Category as CategoryModel;

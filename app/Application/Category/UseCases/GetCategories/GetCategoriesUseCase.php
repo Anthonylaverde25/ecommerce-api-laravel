@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Application\Category\UseCases\GetCategories;
+namespace App\Application\Category\UseCases\GetCategories;
 
-use Application\Category\Contracts\CategoryRepositoryInterface;
+use App\Application\Category\Contracts\CategoryRepositoryInterface;
 
 /**
  * GetCategoriesUseCase - Application Layer

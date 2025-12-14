@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Laravel\Providers;
 
-use Application\Category\Contracts\CategoryRepositoryInterface;
+use App\Application\Category\Contracts\CategoryRepositoryInterface;
 use Infrastructure\Persistence\Eloquent\Repositories\EloquentCategoryRepository;
 use Illuminate\Support\ServiceProvider;
 

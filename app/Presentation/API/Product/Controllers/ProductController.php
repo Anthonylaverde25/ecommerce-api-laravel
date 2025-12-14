@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Presentation\API\Category\Controllers;
+namespace App\Presentation\API\Product\Controllers;
 
 use App\Application\Product\UseCases\Product\ProductCrudUseCase;
+use App\Presentation\API\Product\Requests\IndexProductRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
-
 final class ProductController
 {
     public function __construct(
@@ -15,9 +16,9 @@ final class ProductController
     ) {
     }
 
-    public function index(): JsonResponse
+    public function index(IndexProductRequest $request): JsonResponse
     {
-        $products = $this->productCrudUseCase->index();
+        $products = $this->productCrudUseCase->index($request->getCriteria());
         return Response::json([
             'products' => $products
         ]);

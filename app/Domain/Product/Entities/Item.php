@@ -13,7 +13,8 @@ final class Item implements JsonSerializable
         private ?string $description,
         private float $price,
         private ?float $cost_price,
-        private bool $is_active
+        private bool $is_active,
+        private int $stock = 0
     ) {
     }
 
@@ -50,6 +51,11 @@ final class Item implements JsonSerializable
         return $this->is_active;
     }
 
+    public function stock(): int
+    {
+        return $this->stock;
+    }
+
     /**
      * Serialización a JSON
      */
@@ -62,6 +68,7 @@ final class Item implements JsonSerializable
             'price' => $this->price,
             'cost_price' => $this->cost_price,
             'is_active' => $this->is_active,
+            'stock' => $this->stock,
         ];
     }
 }

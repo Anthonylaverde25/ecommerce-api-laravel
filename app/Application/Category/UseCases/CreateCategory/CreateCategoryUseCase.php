@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Application\Category\UseCases\CreateCategory;
+namespace App\Application\Category\UseCases\CreateCategory;
 
-use Application\Category\Contracts\CategoryRepositoryInterface;
+use App\Application\Category\Contracts\CategoryRepositoryInterface;
 use Domain\Category\Entities\Category;
 use Domain\Category\ValueObjects\CategoryName;
 use Domain\Shared\ValueObjects\Uuid;

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Presentation\API\Category\Controllers;
+namespace App\Presentation\API\Category\Controllers;
 
-use Application\Category\UseCases\CreateCategory\CreateCategoryDTO;
-use Application\Category\UseCases\CreateCategory\CreateCategoryUseCase;
-use Application\Category\UseCases\GetCategories\GetCategoriesUseCase;
+use App\Application\Category\UseCases\CreateCategory\CreateCategoryDTO;
+use App\Application\Category\UseCases\CreateCategory\CreateCategoryUseCase;
+use App\Application\Category\UseCases\GetCategories\GetCategoriesUseCase;
 use Illuminate\Http\JsonResponse;
-use Presentation\API\Category\Requests\CreateCategoryRequest;
-use Presentation\API\Category\Resources\CategoryResource;
+use App\Presentation\API\Category\Requests\CreateCategoryRequest;
+use App\Presentation\API\Category\Resources\CategoryResource;
 
 /**
  * CategoryController - Presentation Layer

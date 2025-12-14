@@ -1,9 +1,9 @@
 <?php
 
-use App\Presentation\API\Category\Controllers\ProductController;
+use App\Presentation\API\Product\Controllers\ProductController;
+use App\Presentation\API\Category\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Presentation\API\Category\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +25,10 @@ use Presentation\API\Category\Controllers\CategoryController;
 Route::prefix('public')->group(function () {
 
 
-    Route::prefix('products')->group(function(){
+    Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'index'])
-            ->name('public.products.index');    
-            
+            ->name('public.products.index');
+
         Route::get('/{id}', [ProductController::class, 'show'])->name('public.products.show');
     });
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Application\Category\UseCases\CreateCategory;
+namespace App\Application\Category\UseCases\CreateCategory;
 
 /**
  * CreateCategoryResponse - Application Layer

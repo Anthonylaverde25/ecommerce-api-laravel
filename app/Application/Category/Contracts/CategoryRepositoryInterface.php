@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Application\Category\Contracts;
+namespace App\Application\Category\Contracts;
 
 use Domain\Category\Entities\Category;
 use Domain\Shared\ValueObjects\Uuid;
