@@ -1,80 +1,24 @@
 <?php
 
-use App\Presentation\API\Product\Controllers\ProductController;
-use App\Presentation\API\Category\Controllers\CategoryController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| API Routes - Organized by Access Level
 |--------------------------------------------------------------------------
-|
-| Rutas divididas en:
-| 1. Rutas Públicas - Para E-commerce (sin autenticación)
-| 2. Rutas Privadas - Para Admin (requieren autenticación)
+| 
+| Routes are split into separate files for better organization:
+| - routes/api/auth.php    → Authentication (public & protected)
+| - routes/api/public.php  → E-commerce read-only (no auth)
+| - routes/api/admin.php   → ERP full CRUD (auth required)
 |
 */
 
-// ============================================================================
-// RUTAS PÚBLICAS - E-COMMERCE
-// ============================================================================
-// Estas rutas NO requieren autenticación
-// Accesibles desde la app de e-commerce para clientes
+// Auth routes (public + protected)
+Route::prefix('auth')->group(base_path('routes/api/auth.php'));
 
-Route::prefix('public')->group(function () {
+// Public routes (e-commerce)
+Route::prefix('public')->name('public.')->group(base_path('routes/api/public.php'));
 
-
-    Route::prefix('products')->group(function () {
-        Route::get('/', [ProductController::class, 'index'])
-            ->name('public.products.index');
-
-        Route::get('/{id}', [ProductController::class, 'show'])->name('public.products.show');
-    });
-
-    // Categories - Solo lectura
-    Route::prefix('categories')->group(function () {
-        Route::get('/', [CategoryController::class, 'index'])
-            ->name('public.categories.index');
-        Route::get('/root', [CategoryController::class, 'rootCategories'])
-            ->name('public.categories.root');
-        Route::get('/{id}', [CategoryController::class, 'show'])
-            ->name('public.categories.show');
-    });
-
-
-});
-
-
-// ============================================================================
-// RUTAS PRIVADAS - ADMIN PANEL
-// ============================================================================
-// Estas rutas REQUIEREN autenticación con Sanctum
-// Solo accesibles desde la app de administración
-
-Route::middleware('auth:sanctum')->group(function () {
-
-    // User - Obtener usuario autenticado
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    })->name('admin.user');
-
-    // Auth - Logout
-    // Route::post('/logout', [AuthController::class, 'logout']);
-
-    // Categories - CRUD completo (Admin)
-    Route::prefix('admin/categories')->group(function () {
-        Route::post('/', [CategoryController::class, 'store'])
-            ->name('admin.categories.store');
-        Route::put('/{id}', [CategoryController::class, 'update'])
-            ->name('admin.categories.update');
-        Route::delete('/{id}', [CategoryController::class, 'destroy'])
-            ->name('admin.categories.destroy');
-
-        // También puede ver (útil para el admin)
-        Route::get('/', [CategoryController::class, 'index'])
-            ->name('admin.categories.index');
-    });
-
-
-});
+// Admin routes (ERP - protected)
+Route::prefix('admin')->name('admin.')->middleware('auth:sanctum')->group(base_path('routes/api/admin.php'));

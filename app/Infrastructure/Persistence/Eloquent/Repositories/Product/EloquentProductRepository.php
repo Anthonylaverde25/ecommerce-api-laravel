@@ -1,11 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Infrastructure\Persistence\Eloquent\Repositories;
+namespace Infrastructure\Persistence\Eloquent\Repositories\Product;
 
 use App\Models\Item as EloquentProductModel;
 use App\Application\Product\Contracts\ProductRepositoryInterface;
 use Domain\Product\Entities\Item;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Implementación del repositorio de productos usando Eloquent.
@@ -17,36 +18,71 @@ final class EloquentProductRepository implements ProductRepositoryInterface
 {
     public function index(array $criteria = []): array
     {
-        $query = EloquentProductModel::withStock();
+        // Log::info('criterios de busquedad', $criteria);
+        // Start with a base query without stock
+        $baseQuery = EloquentProductModel::query();
 
+        // Apply filters to base query
         // Filter by category IDs if provided
         if (!empty($criteria['categoryIds'])) {
-            $query->whereHas('categories', function ($q) use ($criteria) {
+            $baseQuery->whereHas('categories', function ($q) use ($criteria) {
                 $q->whereIn('categories.id', $criteria['categoryIds']);
             });
         }
 
         // Filter by minimum price if provided
         if (isset($criteria['minPrice'])) {
-            $query->where('price', '>=', $criteria['minPrice']);
+            $baseQuery->where('price', '>=', $criteria['minPrice']);
         }
 
         // Filter by maximum price if provided
         if (isset($criteria['maxPrice'])) {
-            $query->where('price', '<=', $criteria['maxPrice']);
+            $baseQuery->where('price', '<=', $criteria['maxPrice']);
         }
 
         // Filter by search term if provided
         if (!empty($criteria['search'])) {
-            $query->where(function ($q) use ($criteria) {
+            $baseQuery->where(function ($q) use ($criteria) {
                 $q->where('name', 'like', '%' . $criteria['search'] . '%')
                     ->orWhere('description', 'like', '%' . $criteria['search'] . '%');
             });
         }
 
-        return $query->get()
+        if (isset($criteria['sortBy'])) {
+            $baseQuery->orderBy($criteria['sortBy'], $criteria['sortDirection']);
+        }
+
+        // Calculate price range from the filtered base query (without stock)
+        $priceRange = (clone $baseQuery)->priceRange();
+
+        $perPage = $criteria['perPage'] ?? 10;
+        $paginatedProducts = (clone $baseQuery)
+            ->withStock()
+            ->paginate($perPage);
+
+        // Get products with stock using the filtered query
+        $products = $paginatedProducts
             ->map(fn(EloquentProductModel $model) => $this->toDomain($model))
             ->toArray();
+
+
+        return [
+            'data' => $products,
+            'meta' => [
+                'priceRange' => $priceRange,
+                'pagination' => [
+                    'total' => $paginatedProducts->total(),
+                    'perPage' => $paginatedProducts->perPage(),
+                    'currentPage' => $paginatedProducts->currentPage(),
+                    'lastPage' => $paginatedProducts->lastPage(),
+                    'from' => $paginatedProducts->firstItem(),
+                    'to' => $paginatedProducts->lastItem(),
+                    'nextPageUrl' => $paginatedProducts->nextPageUrl(),
+                    'prevPageUrl' => $paginatedProducts->previousPageUrl(),
+                    'path' => $paginatedProducts->path(),
+                ]
+            ]
+        ];
     }
 
 
@@ -67,6 +103,7 @@ final class EloquentProductRepository implements ProductRepositoryInterface
             name: $model->name,
             description: $model->description,
             price: (float) $model->price,
+            price_with_taxes: (float) $model->priceWithTaxes,
             cost_price: $model->cost_price ? (float) $model->cost_price : null,
             is_active: $model->is_active,
             stock: (int) $model->stock

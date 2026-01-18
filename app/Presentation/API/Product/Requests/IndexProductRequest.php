@@ -19,6 +19,13 @@ class IndexProductRequest extends FormRequest
             'minPrice' => 'nullable|numeric|min:0',
             'maxPrice' => 'nullable|numeric|min:0',
             'search' => 'nullable|string|max:255',
+            'page' => 'nullable|integer|min:0',
+            'perPage' => 'nullable|integer|min:1|max:100', // Límite máximo de 100
+            'sortBy' => 'nullable|string|in:price,name',
+            'sortDirection' => 'nullable|string|in:asc,desc'
+
+
+
         ];
     }
 

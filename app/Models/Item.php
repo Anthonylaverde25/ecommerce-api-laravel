@@ -72,4 +72,60 @@ class Item extends Model
     }
 
 
+
+    /**
+     * Scope para obtener el rango de precios dinamicos
+     */
+
+    public function scopePriceRange($query): array
+    {
+        $stats = $query->selectRaw('MIN(price) as min_price, MAX(price) as max_price')->first();
+        return [
+            'min' => $stats->min_price ? (float) $stats->min_price : 0,
+            'max' => $stats->max_price ? (float) $stats->max_price : 0
+
+        ];
+    }
+
+
+    /**
+     * Scope para obtener el precio mas taxes
+     */
+
+    protected function priceWithTaxes(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $basePrice = $this->price;
+                $totalTaxPercentage = $this->taxes->sum('porcentaje');
+                return round($basePrice * (1 + $totalTaxPercentage / 100), 2);
+            }
+        );
+    }
+
+    protected function taxAmount(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $basePrice = $this->price;
+                $totalTaxPercentage = $this->taxes->sum('porcentaje');
+
+                return round($basePrice * ($totalTaxPercentage / 100), 2);
+            }
+        );
+    }
+
+
+
+
+
+    /**
+     * Relaciones
+     */
+    public function taxes(): BelongsToMany
+    {
+        return $this->belongsToMany(Tax::class);
+    }
+
+
 }

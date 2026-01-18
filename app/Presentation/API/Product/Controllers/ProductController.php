@@ -18,9 +18,10 @@ final class ProductController
 
     public function index(IndexProductRequest $request): JsonResponse
     {
-        $products = $this->productCrudUseCase->index($request->getCriteria());
+        $result = $this->productCrudUseCase->index($request->getCriteria());
         return Response::json([
-            'products' => $products
+            'products' => $result['data'],
+            'meta' => $result['meta']
         ]);
 
     }

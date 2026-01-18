@@ -1,0 +1,477 @@
+digraph "G" {
+style="filled"
+bgcolor="#F7F7F7"
+fontsize="12"
+labelloc="t"
+concentrate="1"
+splines="polyline"
+overlap=""
+nodesep="1"
+rankdir="LR"
+pad="0.5"
+ranksep="2"
+esep="1"
+fontname="Helvetica Neue"
+appmodelscategory:id -> appmodelscategory:parent_id [
+label=" "
+xlabel="HasMany
+children"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelscategory:parent_id -> appmodelscategory:id [
+label=" "
+xlabel="BelongsTo
+parent"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelscategory:id -> category_item:category_id [
+label=" "
+xlabel="BelongsToMany
+items"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+category_item:item_id -> appmodelsitem:id [
+label=" "
+xlabel="BelongsToMany
+items"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsdepartment:id -> department_user:department_id [
+label=" "
+xlabel="BelongsToMany
+users"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+department_user:user_id -> appmodelsuser:id [
+label=" "
+xlabel="BelongsToMany
+users"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsfamily:id -> family_tax:family_id [
+label=" "
+xlabel="BelongsToMany
+taxes"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+family_tax:tax_id -> appmodelstax:id [
+label=" "
+xlabel="BelongsToMany
+taxes"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsitem:id -> category_item:item_id [
+label=" "
+xlabel="BelongsToMany
+categories"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+category_item:category_id -> appmodelscategory:id [
+label=" "
+xlabel="BelongsToMany
+categories"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsitem:id -> item_warehouses:item_id [
+label=" "
+xlabel="BelongsToMany
+warehouses"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+item_warehouses:warehouse_id -> appmodelswarehouse:id [
+label=" "
+xlabel="BelongsToMany
+warehouses"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsitem:id -> item_tax:item_id [
+label=" "
+xlabel="BelongsToMany
+taxes"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+item_tax:tax_id -> appmodelstax:id [
+label=" "
+xlabel="BelongsToMany
+taxes"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsrole:id -> role_user:role_id [
+label=" "
+xlabel="BelongsToMany
+users"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+role_user:user_id -> appmodelsuser:id [
+label=" "
+xlabel="BelongsToMany
+users"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelstax:tax_type_id -> appmodelstaxtype:id [
+label=" "
+xlabel="BelongsTo
+taxType"
+color="#F77F00"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="tee"
+arrowtail="crow"
+]
+appmodelstax:id -> family_tax:tax_id [
+label=" "
+xlabel="BelongsToMany
+families"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+family_tax:family_id -> appmodelsfamily:id [
+label=" "
+xlabel="BelongsToMany
+families"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelstax:id -> item_tax:tax_id [
+label=" "
+xlabel="BelongsToMany
+items"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+item_tax:item_id -> appmodelsitem:id [
+label=" "
+xlabel="BelongsToMany
+items"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelstaxtype:id -> appmodelstax:tax_type_id [
+label=" "
+xlabel="HasMany
+taxes"
+color="#FCBF49"
+penwidth="1.8"
+fontname="Helvetica Neue"
+dir="both"
+arrowhead="crow"
+arrowtail="none"
+]
+appmodelsuser:id -> role_user:user_id [
+label=" "
+xlabel="BelongsToMany
+roles"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+role_user:role_id -> appmodelsrole:id [
+label=" "
+xlabel="BelongsToMany
+roles"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelsuser:id -> department_user:user_id [
+label=" "
+xlabel="BelongsToMany
+departments"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+department_user:department_id -> appmodelsdepartment:id [
+label=" "
+xlabel="BelongsToMany
+departments"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+appmodelswarehouse:id -> item_warehouses:warehouse_id [
+label=" "
+xlabel="BelongsToMany
+items"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+item_warehouses:item_id -> appmodelsitem:id [
+label=" "
+xlabel="BelongsToMany
+items"
+color="#003049"
+penwidth="1.8"
+fontname="Helvetica Neue"
+]
+"appmodelscategory" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Category</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (text)</font></td></tr>
+<tr width="100%"><td port="parent_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >parent_id (bigint)</font></td></tr>
+<tr width="100%"><td port="is_active" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >is_active (tinyint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsdepartment" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Department</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="code" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >code (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (varchar)</font></td></tr>
+<tr width="100%"><td port="status" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >status (tinyint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsfamily" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Family</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (varchar)</font></td></tr>
+<tr width="100%"><td port="code" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >code (varchar)</font></td></tr>
+<tr width="100%"><td port="active" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >active (tinyint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsitem" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Item</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (text)</font></td></tr>
+<tr width="100%"><td port="price" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >price (decimal)</font></td></tr>
+<tr width="100%"><td port="cost_price" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >cost_price (decimal)</font></td></tr>
+<tr width="100%"><td port="is_active" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >is_active (tinyint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsitemwarehouse" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">ItemWarehouse</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="item_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >item_id (bigint)</font></td></tr>
+<tr width="100%"><td port="warehouse_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >warehouse_id (bigint)</font></td></tr>
+<tr width="100%"><td port="quantity" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >quantity (int)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsrole" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Role</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelstax" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Tax</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="tax_type_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >tax_type_id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="tax_code" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >tax_code (varchar)</font></td></tr>
+<tr width="100%"><td port="porcentaje" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >porcentaje (double)</font></td></tr>
+<tr width="100%"><td port="active" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >active (tinyint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="description" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >description (text)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelstaxtype" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">TaxType</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="code" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >code (varchar)</font></td></tr>
+<tr width="100%"><td port="active" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >active (tinyint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelsuser" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">User</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="email" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >email (varchar)</font></td></tr>
+<tr width="100%"><td port="email_verified_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >email_verified_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="password" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >password (varchar)</font></td></tr>
+<tr width="100%"><td port="remember_token" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >remember_token (varchar)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"appmodelswarehouse" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Warehouse</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="name" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >name (varchar)</font></td></tr>
+<tr width="100%"><td port="address" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >address (varchar)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"category_item" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Pivot</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="category_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >category_id (bigint)</font></td></tr>
+<tr width="100%"><td port="item_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >item_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"department_user" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Pivot</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="department_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >department_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"family_tax" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Pivot</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="family_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >family_id (bigint)</font></td></tr>
+<tr width="100%"><td port="tax_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >tax_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"item_warehouses" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Pivot</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="item_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >item_id (bigint)</font></td></tr>
+<tr width="100%"><td port="warehouse_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >warehouse_id (bigint)</font></td></tr>
+<tr width="100%"><td port="quantity" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >quantity (int)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"item_tax" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Pivot</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="item_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >item_id (bigint)</font></td></tr>
+<tr width="100%"><td port="tax_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >tax_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+"role_user" [
+label=<<table width="100%" height="100%" border="0" margin="0" cellborder="1" cellspacing="0" cellpadding="10">
+<tr width="100%"><td width="100%" bgcolor="#d3d3d3"><font color="#333333">Pivot</font></td></tr>
+<tr width="100%"><td port="id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >id (bigint)</font></td></tr>
+<tr width="100%"><td port="role_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >role_id (bigint)</font></td></tr>
+<tr width="100%"><td port="user_id" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >user_id (bigint)</font></td></tr>
+<tr width="100%"><td port="created_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >created_at (timestamp)</font></td></tr>
+<tr width="100%"><td port="updated_at" align="left" width="100%"  bgcolor="#ffffff"><font color="#333333" >updated_at (timestamp)</font></td></tr>
+</table>>
+margin="0"
+shape="rectangle"
+fontname="Helvetica Neue"
+]
+}

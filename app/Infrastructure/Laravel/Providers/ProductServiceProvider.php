@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Infrastructure\Laravel\Providers;
 
 use App\Application\Product\Contracts\ProductRepositoryInterface;
-use Infrastructure\Persistence\Eloquent\Repositories\EloquentProductRepository;
+use Infrastructure\Persistence\Eloquent\Repositories\Product\EloquentProductRepository;
 use Illuminate\Support\ServiceProvider;
 
 /**

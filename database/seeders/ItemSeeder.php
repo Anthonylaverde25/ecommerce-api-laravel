@@ -40,7 +40,6 @@ class ItemSeeder extends Seeder
             'description' => 'Latest flagship smartphone with titanium design and A17 Pro chip',
             'price' => 999.99,
             'cost_price' => 750.00,
-            'stock' => 50,
             'is_active' => true,
         ]);
         $iphone->categories()->attach([$electronics->id, $smartphones->id]);
@@ -51,7 +50,6 @@ class ItemSeeder extends Seeder
             'description' => 'Flagship Android smartphone with S Pen and 200MP camera',
             'price' => 1199.99,
             'cost_price' => 900.00,
-            'stock' => 30,
             'is_active' => true,
         ]);
         $samsung->categories()->attach([$electronics->id, $smartphones->id]);
@@ -62,7 +60,6 @@ class ItemSeeder extends Seeder
             'description' => 'Professional laptop with M3 chip, 16GB RAM, 512GB SSD',
             'price' => 2499.99,
             'cost_price' => 2000.00,
-            'stock' => 15,
             'is_active' => true,
         ]);
         $macbook->categories()->attach([$electronics->id, $laptops->id]);
@@ -73,7 +70,6 @@ class ItemSeeder extends Seeder
             'description' => 'Premium Windows laptop with Intel i7, 32GB RAM',
             'price' => 1899.99,
             'cost_price' => 1500.00,
-            'stock' => 20,
             'is_active' => true,
         ]);
         $dell->categories()->attach([$electronics->id, $laptops->id]);
@@ -84,7 +80,6 @@ class ItemSeeder extends Seeder
             'description' => 'Professional mirrorless camera with 45MP sensor and 8K video',
             'price' => 3899.99,
             'cost_price' => 3200.00,
-            'stock' => 8,
             'is_active' => true,
         ]);
         $canon->categories()->attach([$electronics->id, $cameras->id]);
@@ -95,7 +90,6 @@ class ItemSeeder extends Seeder
             'description' => 'Premium noise-cancelling wireless headphones',
             'price' => 399.99,
             'cost_price' => 280.00,
-            'stock' => 45,
             'is_active' => true,
         ]);
         $sonyHeadphones->categories()->attach([$electronics->id, $audio->id]);
@@ -106,7 +100,6 @@ class ItemSeeder extends Seeder
             'description' => 'Wireless earbuds with active noise cancellation',
             'price' => 249.99,
             'cost_price' => 180.00,
-            'stock' => 100,
             'is_active' => true,
         ]);
         $airpods->categories()->attach([$electronics->id, $audio->id]);
@@ -119,7 +112,6 @@ class ItemSeeder extends Seeder
             'description' => 'Iconic basketball sneakers in classic colorway',
             'price' => 179.99,
             'cost_price' => 120.00,
-            'stock' => 60,
             'is_active' => true,
         ]);
         $airJordan->categories()->attach([$fashion->id, $shoes->id, $sports->id]);
@@ -130,7 +122,6 @@ class ItemSeeder extends Seeder
             'description' => 'Premium running shoes with Boost cushioning',
             'price' => 189.99,
             'cost_price' => 130.00,
-            'stock' => 75,
             'is_active' => true,
         ]);
         $ultraboost->categories()->attach([$fashion->id, $shoes->id, $sports->id]);
@@ -141,7 +132,6 @@ class ItemSeeder extends Seeder
             'description' => 'Classic straight-fit denim jeans',
             'price' => 89.99,
             'cost_price' => 50.00,
-            'stock' => 120,
             'is_active' => true,
         ]);
         $levis->categories()->attach([$fashion->id, $mensClothing->id]);
@@ -152,7 +142,6 @@ class ItemSeeder extends Seeder
             'description' => 'Premium cotton polo shirt in multiple colors',
             'price' => 98.50,
             'cost_price' => 60.00,
-            'stock' => 85,
             'is_active' => true,
         ]);
         $polo->categories()->attach([$fashion->id, $mensClothing->id]);
@@ -163,7 +152,6 @@ class ItemSeeder extends Seeder
             'description' => 'Elegant floral print midi dress',
             'price' => 69.99,
             'cost_price' => 35.00,
-            'stock' => 40,
             'is_active' => true,
         ]);
         $zaraDress->categories()->attach([$fashion->id, $womensClothing->id]);
@@ -176,7 +164,6 @@ class ItemSeeder extends Seeder
             'description' => 'Comfortable modular sofa with washable cover',
             'price' => 599.99,
             'cost_price' => 400.00,
-            'stock' => 12,
             'is_active' => true,
         ]);
         $sofa->categories()->attach([$home->id, $furniture->id]);
@@ -187,7 +174,6 @@ class ItemSeeder extends Seeder
             'description' => 'Advanced cordless vacuum with laser detection',
             'price' => 749.99,
             'cost_price' => 550.00,
-            'stock' => 18,
             'is_active' => true,
         ]);
         $dyson->categories()->attach([$home->id, $electronics->id]);
@@ -198,7 +184,6 @@ class ItemSeeder extends Seeder
             'description' => '5-quart tilt-head stand mixer in multiple colors',
             'price' => 429.99,
             'cost_price' => 300.00,
-            'stock' => 25,
             'is_active' => true,
         ]);
         $kitchenaid->categories()->attach([$home->id, $kitchen->id]);
@@ -211,7 +196,6 @@ class ItemSeeder extends Seeder
             'description' => 'Premium indoor exercise bike with rotating screen',
             'price' => 2495.00,
             'cost_price' => 1800.00,
-            'stock' => 5,
             'is_active' => true,
         ]);
         $peloton->categories()->attach([$sports->id, $fitness->id]);
@@ -222,7 +206,6 @@ class ItemSeeder extends Seeder
             'description' => 'Premium yoga mat with dual-sided texture',
             'price' => 88.00,
             'cost_price' => 50.00,
-            'stock' => 150,
             'is_active' => true,
         ]);
         $yogaMat->categories()->attach([$sports->id, $fitness->id]);
@@ -233,7 +216,6 @@ class ItemSeeder extends Seeder
             'description' => 'Space-saving adjustable dumbbells 5-52.5 lbs',
             'price' => 349.99,
             'cost_price' => 250.00,
-            'stock' => 30,
             'is_active' => true,
         ]);
         $dumbbells->categories()->attach([$sports->id, $fitness->id]);

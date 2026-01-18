@@ -12,9 +12,11 @@ final class Item implements JsonSerializable
         private string $name,
         private ?string $description,
         private float $price,
+        private float $price_with_taxes,
         private ?float $cost_price,
         private bool $is_active,
         private int $stock = 0
+
     ) {
     }
 
@@ -39,6 +41,11 @@ final class Item implements JsonSerializable
     public function price(): float
     {
         return $this->price;
+    }
+
+    public function priceWithTaxes(): float
+    {
+        return $this->price_with_taxes;
     }
 
     public function costPrice(): ?float
@@ -66,6 +73,7 @@ final class Item implements JsonSerializable
             'name' => $this->name,
             'description' => $this->description,
             'price' => $this->price,
+            'price_with_taxes' => $this->price_with_taxes,
             'cost_price' => $this->cost_price,
             'is_active' => $this->is_active,
             'stock' => $this->stock,

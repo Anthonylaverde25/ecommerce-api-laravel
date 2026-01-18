@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Persistence\Eloquent\Repositories;
+namespace Infrastructure\Persistence\Eloquent\Repositories\Category;
 
 use App\Application\Category\Contracts\CategoryRepositoryInterface;
 use Domain\Category\Entities\Category;
