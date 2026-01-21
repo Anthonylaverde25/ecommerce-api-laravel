@@ -26,7 +26,7 @@ class FamilyResource extends JsonResource
         return [
             'id' => $family->getId(),
             'name' => $family->getName(),
-            'code' => $family->getCode(),
+            'code' => $faamily->getCode(),
             'description' => $family->getDescription(),
             'active' => $family->isActive(),
             'tax_ids' => $family->getTaxIds(),

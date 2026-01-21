@@ -23,6 +23,7 @@ class FamilyService
 
     public function create(CreateFamilyData $data): Family
     {
+      
         return $this->createFamilyUseCase->execute($data);
     }
 
